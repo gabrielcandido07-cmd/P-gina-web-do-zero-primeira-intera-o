@@ -42,32 +42,52 @@
             background-color: #242124;
             color: #A9B8CC;
             padding: 30px 20px;
-            text-align: center;
             display: flex;
-
+            flex-direction: column; /* Organiza os posts um abaixo do outro */
+            gap: 24px;
         }
 
-
+        article {
+            background-color: #1E1E1E;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #3A3A3A;
+            text-align: left;
+        }
 
         .imagem-copa {
             width: 100%;
-            max-height: 400px;
+            max-height: 300px;
             object-fit: cover;
             border-radius: 6px;
-            margin-bottom: 20px;
-            border: 1px solid #3A3A3A;
+            margin-bottom: 12px;
         }
 
-        main h2 {
+        article h2 {
             color: #FFFFFF;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
-        .autor {
+        .artigo-autor {
             font-size: 0.9rem;
             font-style: italic;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             color: #7A8B9E;
+        }
+
+        button {
+            background-color: #333333;
+            color: #FFFFFF;
+            border: 1px solid #555555;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 12px;
+            margin-right: 8px;
+        }
+
+        button:hover {
+            background-color: #444444;
         }
     </style>
 </head>
@@ -79,38 +99,52 @@
             <p>Vou compartilhar conhecimento sobre a copa e os jogadores</p>
         </header>
 
-        
-            
-<main>
-<article>
-<img src="Gemini_Generated_Image_g6x6ndg6x6ndg6x6.png"
-alt="eleção da epanha campea">
+        <main>
+            <article>
+                <img class="imagem-copa" src="Gemini_Generated_Image_g6x6ndg6x6ndg6x6.png" alt="Seleção da Espanha campeã">
+                <div>
+                    <h2>Meu primeiro post</h2>
+                    <p class="artigo-autor">Por: Gabriel Candido</p>
+                    <p>Boas-vindas! Aqui vou compartilhar conhecimento da Copa do Mundo.</p>
+                    <button>❤️ <span>0</span></button>
+                    <button>💬 <span>0</span></button>
+                </div>
+            </article>
 
-<div>
-<h2>Meu primeiro post</h2>
-<p class="artigo-autor">Por: Marcelo Paludetto</p>
-<p>Boas-vindas aqui vou compartilhar conhecimento da copa do mundo</p>
-<button>❤️<span>0</span></button>
-<button>��<span>0</span></button>
-</div>
-</article>
+            <article>
+                <img class="imagem-copa" src="Gemini_Generated_Image_g6x6ndg6x6ndg6x6.png" alt="Seleção da Espanha">
+                <div>
+                    <h2>Meu segundo post</h2>
+                    <p class="artigo-autor">Por: Gabriel de Oliveira Candido</p>
+                    <p>Boas-vindas!</p>
+                    <button>❤️ <span>0</span></button>
+                    <button>💬 <span>0</span></button>
+                </div>
+            </article>
+        </main>
+    </div>
 
-<article>
-<img src="Gemini_Generated_Image_g6x6ndg6x6ndg6x6.png"
-alt="seleção da epanha">
+    <script>
+        const botoes = document.querySelectorAll("button");
 
-<div>
-<h2>Meu segundo post</h2>
-<p class="artigo-autor">Por: Gabriel de oliveira candido</p>
-<p>Boas-vindas </p>
-<button>❤️<span>0</span></button>
-<button>��<span>0</span></button>
-</div>
-</article>
-</main>
+        botoes.forEach(function (button) {
+            let curtiu = false;
 
+            button.addEventListener("click", function () {
+                let texto = button.querySelector("span");
 
-
+                if (!curtiu) {
+                    texto.textContent = Number(texto.textContent) + 1;
+                    curtiu = true;
+                } else {
+                    texto.textContent = Number(texto.textContent) - 1;
+                    curtiu = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
 
 
 
